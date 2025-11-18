@@ -165,7 +165,7 @@ h3 {
 
 /* --- 3. Hero Section (Portada) --- */
 .hero-section {
-  position: relative;
+  position: relative; /* Necesario para que lo de adentro se posicione bien */
   text-align: center;
   color: white;
   height: 100vh;
@@ -174,25 +174,48 @@ h3 {
   align-items: center;
   justify-content: center;
   padding: 0 5%;
-  background-image: linear-gradient(rgba(10, 25, 49, 0.4), rgba(10, 25, 49, 0.6)), 
-                    url('/public/images/fondo-portada.jpg'); 
-  background-position: center center;
-  background-size: cover;
+  overflow: hidden; /* Evita que la imagen se salga si es muy grande */
+  /* YA NO USAMOS background-image AQUÍ */
 }
 
+/* Estilo para la imagen que pusimos en el HTML */
+.hero-bg {
+  position: absolute; /* La sacamos del flujo normal */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que cubra todo el espacio sin deformarse */
+  z-index: 0; /* Se va al fondo */
+}
+
+/* Capa azulada oscura sobre la imagen (para el estilo premium) */
+.hero-dark-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(10, 25, 49, 0.4), rgba(10, 25, 49, 0.6));
+  z-index: 1; /* Encima de la foto */
+}
+
+/* El contenido de texto */
 .hero-text {
   max-width: 900px;
   margin: 0 auto;
+  position: relative; /* Para que acepte z-index */
+  z-index: 2; /* Encima de todo (foto y capa oscura) */
 }
 
-/* Recuadro oscuro transparente */
+/* Recuadro oscuro transparente (sin cambios) */
 .hero-text-overlay {
   background-color: rgba(5, 10, 20, 0.75);
   padding: 50px 70px;
   border-radius: 12px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  display: inline-block;
+  display: inline-block; 
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
@@ -206,7 +229,6 @@ h3 {
   margin-bottom: 15px;
 }
 
-/* Estilo destacado para el nombre "Liliana Molins" */
 .nombre-destacado {
     display: block; 
     font-size: 2.8rem;
