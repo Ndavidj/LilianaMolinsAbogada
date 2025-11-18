@@ -313,19 +313,33 @@
     </a>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('DOMContentLoaded', () => {
         // Selecciona el botón hamburguesa
-        const burgerMenu = document.getElementById("burger-menu");
+        const burgerMenu = document.getElementById('burger-menu');
         // Selecciona el menú de navegación
-        const siteNavigation = document.getElementById("site-navigation");
+        const siteNavigation = document.getElementById('site-navigation');
+        // Selecciona TODOS los enlaces dentro del menú
+        const navLinks = document.querySelectorAll('.main-navbar a');
 
-        // Añade un "escuchador de clics" al botón
-        burgerMenu.addEventListener("click", () => {
-          // Cada vez que se hace clic, añade o quita la clase 'is-active'
-          siteNavigation.classList.toggle("is-active");
-          burgerMenu.classList.toggle("is-active");
+        // Función para abrir/cerrar menú
+        const toggleMenu = () => {
+            siteNavigation.classList.toggle('is-active');
+            burgerMenu.classList.toggle('is-active');
+        };
+
+        // 1. Evento clic en el botón hamburguesa
+        burgerMenu.addEventListener('click', toggleMenu);
+
+        // 2. Evento clic en CADA enlace del menú (para cerrar al clickear)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Si el menú está abierto, lo cerramos quitando la clase
+                if (siteNavigation.classList.contains('is-active')) {
+                    toggleMenu();
+                }
+            });
         });
-      });
-    </script>
+    });
+</script>
   </body>
 </html>
