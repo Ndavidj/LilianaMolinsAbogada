@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -18,7 +17,6 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-W5F466WK");
     </script>
-    <!-- End Google Tag Manager -->
     <title>
       Liliana Molins | Abogada en CABA y Buenos Aires | Civil y Laboral
     </title>
@@ -60,9 +58,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;900&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -70,53 +76,9 @@
 
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="icon" type="image/svg+xml" href="./images/logo-title.png" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "url": "https://lilianamolinsabogada.netlify.app/",
-            "name": "Estudio Jurídico Liliana Molins",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://lilianamolinsabogada.netlify.app/?s={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
-          },
-          {
-            "@type": "LegalService",
-            "name": "Estudio Jurídico Liliana Molins",
-            "url": "https://lilianamolinsabogada.netlify.app/",
-            "image": "https://lilianamolinsabogada.netlify.app/public/images/logo-estudio-juridico-dark.svg",
-            "telephone": "+54 11 6688-3785",
-            "email": "lilianamolinsabogada@gmail.com",
-            "serviceArea": [
-              "Ciudad Autónoma de Buenos Aires",
-              "Provincia de Buenos Aires"
-            ],
-            "slogan": "Soluciones legales personalizadas, eficaces y orientadas a resultados.",
-            "knowsAbout": [
-              "Derecho Civil",
-              "Derecho Laboral",
-              "Sucesiones",
-              "Divorcios",
-              "ART"
-            ],
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Buenos Aires",
-              "addressRegion": "AR"
-            }
-          }
-        ]
-      }
-    </script>
   </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-W5F466WK"
@@ -125,8 +87,6 @@
         style="display: none; visibility: hidden"
       ></iframe
     ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <header class="main-header">
       <div class="top-header-container">
         <div id="top-header">
@@ -147,19 +107,25 @@
           </ul>
         </nav>
 
-        <div class="header-contact-block">
-          <a href="tel:+541166883785" class="header-phone">
-            <i class="fas fa-phone"></i>
-            <span>+54 11 6688-3785</span>
-          </a>
-          <a href="#contacto" class="btn-primary header-cta"
-            >Agendar Consulta</a
-          >
-        </div>
+        <div class="header-actions">
+          <div class="header-contact-block">
+            <a href="tel:+541166883785" class="header-phone">
+              <i class="fas fa-phone"></i>
+              <span>+54 11 6688-3785</span>
+            </a>
+            <a href="#contacto" class="btn-primary header-cta"
+              >Agendar Consulta</a
+            >
+          </div>
 
-        <button id="burger-menu" aria-label="Abrir menú">
-          <i class="fas fa-bars"></i>
-        </button>
+          <button id="theme-toggle" aria-label="Cambiar modo oscuro/claro">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <button id="burger-menu" aria-label="Abrir menú">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -178,7 +144,7 @@
             Abogada <span class="nombre-destacado">Liliana Molins</span>
           </p>
           <h1>Servicios Jurídicos</h1>
-          <a href="#contacto" class="btn-primary hero-btn">Contáctanos</a>
+          <a href="#contacto" class="btn-primary btn-large">Contáctanos</a>
         </div>
       </div>
     </section>
@@ -254,6 +220,7 @@
             <img
               src="./images/oficina-estudio.png"
               alt="Oficina del estudio jurídico"
+              loading="lazy"
             />
           </div>
         </div>
@@ -362,10 +329,18 @@
           </div>
 
           <div class="footer-col footer-social-links">
-            <a href="#" aria-label="Instagram"
+            <a
+              href="http://www.instagram.com/lilianamolinsabogada/"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
               ><i class="fab fa-instagram"></i
             ></a>
-            <a href="#" aria-label="Facebook"
+            <a
+              href="http://www.facebook.com/profile.php?id=61584262436192"
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
               ><i class="fab fa-facebook-square"></i
             ></a>
           </div>
@@ -375,7 +350,7 @@
           <section id="copyright">
             <p>
               Copyright © 2025 Estudio Liliana Molins. Todos los derechos
-              reservados.
+              reservados. 
             </p>
           </section>
         </div>
@@ -393,30 +368,72 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Selecciona el botón hamburguesa
+        // --- LÓGICA DEL MENÚ HAMBURGUESA ---
         const burgerMenu = document.getElementById("burger-menu");
-        // Selecciona el menú de navegación
         const siteNavigation = document.getElementById("site-navigation");
-        // Selecciona TODOS los enlaces dentro del menú
         const navLinks = document.querySelectorAll(".main-navbar a");
+        const burgerIcon = burgerMenu.querySelector("i");
 
-        // Función para abrir/cerrar menú
         const toggleMenu = () => {
           siteNavigation.classList.toggle("is-active");
           burgerMenu.classList.toggle("is-active");
+
+          if (siteNavigation.classList.contains("is-active")) {
+            burgerIcon.classList.remove("fa-bars");
+            burgerIcon.classList.add("fa-times");
+          } else {
+            burgerIcon.classList.remove("fa-times");
+            burgerIcon.classList.add("fa-bars");
+          }
         };
 
-        // 1. Evento clic en el botón hamburguesa
         burgerMenu.addEventListener("click", toggleMenu);
 
-        // 2. Evento clic en CADA enlace del menú (para cerrar al clickear)
         navLinks.forEach((link) => {
           link.addEventListener("click", () => {
-            // Si el menú está abierto, lo cerramos quitando la clase
             if (siteNavigation.classList.contains("is-active")) {
               toggleMenu();
             }
           });
+        });
+
+        // --- LÓGICA DEL MODO OSCURO (DARK MODE) ---
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = themeToggle.querySelector("i");
+        const body = document.body;
+
+        // Función para aplicar el tema
+        const applyTheme = (isDark) => {
+          if (isDark) {
+            body.classList.add("dark-mode");
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun"); // Cambia a icono de sol
+          } else {
+            body.classList.remove("dark-mode");
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon"); // Cambia a icono de luna
+          }
+        };
+
+        // 1. Cargar preferencia guardada
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          applyTheme(true);
+        }
+
+        // 2. Evento Click
+        themeToggle.addEventListener("click", () => {
+          const isDarkMode = body.classList.contains("dark-mode");
+
+          if (isDarkMode) {
+            // Si está oscuro, pasa a claro
+            applyTheme(false);
+            localStorage.setItem("theme", "light");
+          } else {
+            // Si está claro, pasa a oscuro
+            applyTheme(true);
+            localStorage.setItem("theme", "dark");
+          }
         });
       });
     </script>
