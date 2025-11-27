@@ -1,5 +1,5 @@
 /*
-  CSS DEFINITIVO CON MODO OSCURO - ESTUDIO JURÍDICO MOLINS
+  CSS DEFINITIVO CON MODO OSCURO Y LOGO DORADO
 */
 
 /* --- 1. Definición de Variables de Color --- */
@@ -21,16 +21,16 @@
 
 /* --- MODO OSCURO (Clase .dark-mode) --- */
 .dark-mode {
-  --primary-color: #D4AF37;       /* Oro (Se mantiene igual) */
-  --secondary-color: #ffffff;     /* Elementos secundarios pasan a blanco */
-  --bg-main: #0a1931;             /* El body ahora es Azul Noche */
+  --primary-color: #D4AF37;       /* Oro */
+  --secondary-color: #ffffff;     /* Elementos secundarios blancos */
+  --bg-main: #0a1931;             /* Body Azul Noche */
   --bg-secondary: #050d1a;        /* Secciones alternas más oscuras */
-  --bg-contact: #050d1a;          /* Contacto se funde con el tono oscuro */
-  --bg-card: #112240;             /* Tarjetas en un azul intermedio */
-  --text-main: #e6e6e6;           /* Texto principal claro */
-  --text-light: #e6e6e6;          /* Texto claro se mantiene */
+  --bg-contact: #050d1a;          /* Contacto oscuro */
+  --bg-card: #112240;             /* Tarjetas azul intermedio */
+  --text-main: #e6e6e6;           /* Texto claro */
+  --text-light: #e6e6e6;          
   --text-heading: #ffffff;        /* Títulos blancos */
-  --shadow: rgba(0, 0, 0, 0.3);   /* Sombra más fuerte */
+  --shadow: rgba(0, 0, 0, 0.3);   
   --border-color: #555;           
   --input-bg: #0a1931;            
 }
@@ -53,7 +53,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: var(--text-main);
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave de tema */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 img {
@@ -121,18 +121,22 @@ h3 {
   max-height: 80px;
   width: auto;
   display: block;
-  /* Opcional: Filtro para invertir logo si es negro en dark mode, 
-     pero como tu logo parece tener texto claro o adaptable, lo dejamos así por ahora. */
+  transition: filter 0.3s ease; /* Transición suave del color */
 }
 
-/* Contenedor de acciones (Botón tema + Contacto + Hamburguesa) */
+/* TRUCO PARA LOGO DORADO EN DARK MODE:
+   Este filtro transforma un logo negro/oscuro en el color dorado aproximado (#D4AF37)
+*/
+.dark-mode #logo img {
+    filter: invert(76%) sepia(35%) saturate(836%) hue-rotate(359deg) brightness(89%) contrast(88%);
+}
+
 .header-actions {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* Botón Toggle Dark Mode */
 #theme-toggle {
     background: transparent;
     border: 2px solid var(--primary-color);
@@ -150,7 +154,7 @@ h3 {
 
 #theme-toggle:hover {
     background-color: var(--primary-color);
-    color: var(--bg-main); /* Contraste al hacer hover */
+    color: var(--bg-main); 
 }
 
 #site-navigation {
@@ -196,7 +200,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text-heading); /* Cambiado a heading para contraste en dark mode */
+  color: var(--text-heading); 
   font-weight: 700;
 }
 .header-phone:hover {
@@ -216,7 +220,7 @@ h3 {
   display: block;
   background: transparent;
   border: none;
-  color: var(--text-heading); /* Se adapta al tema */
+  color: var(--text-heading);
   font-size: 1.8rem;
   cursor: pointer;
   padding: 5px;
@@ -312,7 +316,7 @@ h3 {
 /* --- Botones --- */
 .btn-primary {
   background-color: var(--primary-color);
-  color: #0a1931; /* Siempre oscuro el texto del botón relleno */
+  color: #0a1931; 
   padding: 12px 28px;
   font-weight: 700;
   border-radius: 5px;
@@ -345,7 +349,7 @@ h3 {
 }
 .btn-primary.dark-outline:hover {
   background-color: var(--text-heading);
-  color: var(--bg-main); /* Color del fondo para contraste */
+  color: var(--bg-main); 
 }
 
 /* --- Contenido --- */
@@ -382,7 +386,7 @@ main {
 
 .area-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Sombra un poco más fuerte al hover */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); 
 }
 
 .area-icon {
@@ -447,7 +451,7 @@ main {
 
 #contacto h2,
 #contacto h3 {
-  color: #ffffff; /* En contacto (sección oscura) los títulos siempre blancos */
+  color: #ffffff; 
 }
 
 .contact-container {
@@ -518,7 +522,7 @@ main {
 
 /* --- Footer --- */
 footer {
-  background-color: #050d1a; /* Siempre muy oscuro */
+  background-color: #050d1a; 
   color: #ffffff;
   padding: 40px 5% 15px;
   font-size: 0.95rem;
@@ -665,7 +669,6 @@ footer {
 @media (max-width: 991px) {
   .top-header-container {
     justify-content: space-between; 
-    /* Ajuste para que el logo quede a la izq y acciones a la der */
   }
 
   #top-header {
@@ -673,19 +676,17 @@ footer {
       transform: none;
   }
   
-  /* Ajuste para móvil: acciones agrupadas */
   .header-actions {
       gap: 15px;
   }
 
-  /* Menú Desplegable */
   #site-navigation {
     display: none;
     position: absolute;
     top: 100px;
     left: 0;
     width: 100%;
-    background-color: var(--bg-main); /* Se adapta al tema */
+    background-color: var(--bg-main); 
     padding: 10px 0;
     box-shadow: 0 5px 10px var(--shadow);
   }
@@ -713,7 +714,6 @@ footer {
     background-color: var(--bg-secondary);
   }
 
-  /* Footer */
   .footer-columns-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -798,7 +798,6 @@ footer {
     padding: 20px 5% 5px;
   }
   
-  /* Ajuste botón toggle en móvil muy pequeño */
   #theme-toggle {
       width: 35px;
       height: 35px;
