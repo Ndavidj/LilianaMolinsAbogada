@@ -31,7 +31,6 @@
     <meta name="robots" content="index, follow" />
 
     <link rel="canonical" href="https://lilianamolinsabogada.netlify.app/" />
-
     <meta name="geo.region" content="AR-C" />
     <meta name="geo.placename" content="Buenos Aires" />
 
@@ -74,8 +73,43 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" type="image/svg+xml" href="./images/logo-title.png" />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="public/images/logo-title.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "url": "https://lilianamolinsabogada.netlify.app/",
+            "name": "Estudio Jurídico Liliana Molins",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://lilianamolinsabogada.netlify.app/?s={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "LegalService",
+            "name": "Estudio Jurídico Liliana Molins",
+            "url": "https://lilianamolinsabogada.netlify.app/",
+            "image": "https://lilianamolinsabogada.netlify.app/public/images/logo-estudio-juridico-dark.svg",
+            "telephone": "+54 11 6688-3785",
+            "email": "lilianamolinsabogada@gmail.com",
+            "serviceArea": [
+              "Ciudad Autónoma de Buenos Aires",
+              "Provincia de Buenos Aires"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Buenos Aires",
+              "addressRegion": "AR"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>
@@ -87,12 +121,13 @@
         style="display: none; visibility: hidden"
       ></iframe
     ></noscript>
+
     <header class="main-header">
       <div class="top-header-container">
         <div id="top-header">
           <a href="#inicio" id="logo" aria-label="Ir al inicio">
             <img
-              src="./images/logo-estudio-juridico-dark.svg"
+              src="public/images/logo-estudio-juridico-dark.svg"
               alt="Logo Estudio Jurídico"
             />
           </a>
@@ -131,11 +166,10 @@
 
     <section class="hero-section" id="inicio">
       <img
-        src="./images/fondo-portada.jpg"
+        src="public/images/fondo-portada.jpg"
         alt="Fondo Estudio"
         class="hero-bg"
       />
-
       <div class="hero-dark-layer"></div>
 
       <div class="hero-text">
@@ -144,7 +178,9 @@
             Abogada <span class="nombre-destacado">Liliana Molins</span>
           </p>
           <h1>Servicios Jurídicos</h1>
-          <a href="#contacto" class="btn-primary btn-large">Contáctanos</a>
+          <a href="#contacto" class="btn-primary btn-large hero-btn"
+            >Contáctanos</a
+          >
         </div>
       </div>
     </section>
@@ -156,7 +192,6 @@
           <article class="area-card">
             <i class="fas fa-gavel fa-3x area-icon"></i>
             <h3>Derecho Civil y de Familia</h3>
-
             <ul class="service-list">
               <li>Sucesiones</li>
               <li>Divorcios y convenios</li>
@@ -172,7 +207,6 @@
           <article class="area-card">
             <i class="fas fa-briefcase fa-3x area-icon"></i>
             <h3>Derecho Laboral</h3>
-
             <ul class="service-list">
               <li>Accidentes de trabajo (ART)</li>
               <li>Reclamos ante Comisiones Médicas</li>
@@ -192,33 +226,29 @@
               y en la Provincia de Buenos Aires, respaldados por más de 15 años
               de trayectoria en el ejercicio profesional.
             </p>
-
             <p>
               Nos dedicamos a brindar soluciones legales personalizadas,
               eficaces y orientadas a resultados. Nuestro compromiso es ofrecer
               respuestas precisas y diseñar estrategias jurídicas adaptadas a
               las necesidades de cada cliente.
             </p>
-
             <p>
               Defendemos sus derechos con seriedad, firmeza y total dedicación,
               construyendo vínculos basados en la confianza, la transparencia y
               la responsabilidad profesional.
             </p>
-
             <p>
               Nuestra prioridad es acompañarlo en cada etapa del proceso,
               combinando trayectoria, actualización permanente y una atención
               cercana y humana.
             </p>
-
             <a href="#contacto" class="btn-primary dark-outline"
               >Solicitar Asesoramiento</a
             >
           </div>
           <div class="about-image">
             <img
-              src="./images/oficina-estudio.png"
+              src="public/images/oficina-estudio.png"
               alt="Oficina del estudio jurídico"
               loading="lazy"
             />
@@ -350,7 +380,7 @@
           <section id="copyright">
             <p>
               Copyright © 2025 Estudio Liliana Molins. Todos los derechos
-              reservados. 
+              reservados.
             </p>
           </section>
         </div>
@@ -368,12 +398,15 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // --- LÓGICA DEL MENÚ HAMBURGUESA ---
         const burgerMenu = document.getElementById("burger-menu");
         const siteNavigation = document.getElementById("site-navigation");
-        const navLinks = document.querySelectorAll(".main-navbar a");
+        // Seleccionamos TODOS los links que deben scrollear, incluyendo botones
+        const navLinks = document.querySelectorAll(
+          ".main-navbar a, .header-cta, .hero-btn, .footer-links a"
+        );
         const burgerIcon = burgerMenu.querySelector("i");
 
+        // --- 1. Lógica del Menú Hamburguesa ---
         const toggleMenu = () => {
           siteNavigation.classList.toggle("is-active");
           burgerMenu.classList.toggle("is-active");
@@ -389,51 +422,72 @@
 
         burgerMenu.addEventListener("click", toggleMenu);
 
-        navLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            if (siteNavigation.classList.contains("is-active")) {
-              toggleMenu();
-            }
-          });
-        });
-
-        // --- LÓGICA DEL MODO OSCURO (DARK MODE) ---
+        // --- 2. Lógica del Modo Oscuro ---
         const themeToggle = document.getElementById("theme-toggle");
         const themeIcon = themeToggle.querySelector("i");
         const body = document.body;
 
-        // Función para aplicar el tema
         const applyTheme = (isDark) => {
           if (isDark) {
             body.classList.add("dark-mode");
             themeIcon.classList.remove("fa-moon");
-            themeIcon.classList.add("fa-sun"); // Cambia a icono de sol
+            themeIcon.classList.add("fa-sun");
           } else {
             body.classList.remove("dark-mode");
             themeIcon.classList.remove("fa-sun");
-            themeIcon.classList.add("fa-moon"); // Cambia a icono de luna
+            themeIcon.classList.add("fa-moon");
           }
         };
 
-        // 1. Cargar preferencia guardada
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
+        if (localStorage.getItem("theme") === "dark") {
           applyTheme(true);
         }
 
-        // 2. Evento Click
         themeToggle.addEventListener("click", () => {
           const isDarkMode = body.classList.contains("dark-mode");
-
           if (isDarkMode) {
-            // Si está oscuro, pasa a claro
             applyTheme(false);
             localStorage.setItem("theme", "light");
           } else {
-            // Si está claro, pasa a oscuro
             applyTheme(true);
             localStorage.setItem("theme", "dark");
           }
+        });
+
+        // --- 3. Lógica de SCROLL SUAVE (Solución Definitiva JS) ---
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const href = link.getAttribute("href");
+
+            // Solo actuar si es un ancla interna (#)
+            if (href && href.startsWith("#")) {
+              e.preventDefault();
+
+              const targetId = href.substring(1);
+              const targetElement = document.getElementById(targetId);
+
+              if (targetElement) {
+                // Cálculo de offset según dispositivo
+                // < 576px (móvil chico) = 85px header, sino 100px header
+                const headerOffset = window.innerWidth < 576 ? 85 : 100;
+
+                const elementPosition =
+                  targetElement.getBoundingClientRect().top;
+                const offsetPosition =
+                  elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth",
+                });
+
+                // Si el menú está abierto (móvil), cerrarlo
+                if (siteNavigation.classList.contains("is-active")) {
+                  toggleMenu();
+                }
+              }
+            }
+          });
         });
       });
     </script>

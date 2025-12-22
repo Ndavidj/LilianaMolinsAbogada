@@ -1,5 +1,5 @@
 /*
-  CSS DEFINITIVO CON MODO OSCURO Y LOGO DORADO
+  CSS DEFINITIVO - ESTUDIO JURÍDICO MOLINS
 */
 
 /* --- 1. Definición de Variables de Color --- */
@@ -43,7 +43,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Fallback de scroll suave por si falla JS en algún navegador raro */
+  scroll-behavior: smooth; 
   scroll-padding-top: 100px; 
 }
 
@@ -121,12 +122,10 @@ h3 {
   max-height: 80px;
   width: auto;
   display: block;
-  transition: filter 0.3s ease; /* Transición suave del color */
+  transition: filter 0.3s ease;
 }
 
-/* TRUCO PARA LOGO DORADO EN DARK MODE:
-   Este filtro transforma un logo negro/oscuro en el color dorado aproximado (#D4AF37)
-*/
+/* FILTRO MAGICO: Convierte logo oscuro en Dorado en modo oscuro */
 .dark-mode #logo img {
     filter: invert(76%) sepia(35%) saturate(836%) hue-rotate(359deg) brightness(89%) contrast(88%);
 }
@@ -137,6 +136,7 @@ h3 {
     gap: 20px;
 }
 
+/* Botón Toggle Dark Mode */
 #theme-toggle {
     background: transparent;
     border: 2px solid var(--primary-color);
